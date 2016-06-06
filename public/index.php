@@ -3,14 +3,14 @@ use Zend\Expressive\AppFactory;
 
 chdir(dirname(__DIR__));
 require 'vendor/autoload.php';
-require 'classes/dbConnect.php';
-require 'classes/platesgen.php';
+require 'repository/connection.php';
+require 'services/plates.php';
 
 $app = AppFactory::create();
 
-$db = new dbConnect();
+$db = new ConnectDB();
 $conn = $db->connect();
-$renderer = new platesgen();
+$renderer = new Plates();
 
 $app->get('/', function ($request, $response) use ($conn, $renderer)  {
 

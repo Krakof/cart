@@ -2,7 +2,7 @@
 use League\Plates\Engine as PlatesEngine;
 use Zend\Expressive\Plates\PlatesRenderer;
 
-class Platesgen
+class Plates
 {
     // Create the engine instance:
     public function plates() {
