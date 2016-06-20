@@ -34,6 +34,5 @@ session_start();
     <?php endwhile; ?>
 </div>
 <a class="btn" href="cart">CART</a>
-<?php //echo print_r($_SESSION);?>
 </body>
 </html>
