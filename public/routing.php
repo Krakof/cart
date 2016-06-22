@@ -5,16 +5,15 @@ $app = AppFactory::create();
 
 $app->get('/', function ($request, $response)  {
 
-    $result = (new ProductsController())->getProducts();
-    $response->getBody()->write((new ProductsController())->renderProducts($result));
+    $response->getBody()->write((new ProductsController())->getProdPage());
     return $response;
 });
 
-//$app->get('/cart', function ($request, $response) use ($renderer)  {
-//
-//    $response->getBody()->write($renderer->plates()->render('templates::cart'));
-//    return $response;
-//});
+$app->get('/cart', function ($request, $response) {
+
+    $response->getBody()->write((new CartController())->getCartPage());
+    return $response;
+});
 
 $app->pipeRoutingMiddleware();
 $app->pipeDispatchMiddleware();
