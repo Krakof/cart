@@ -1,11 +1,12 @@
 <?php
 
 class CartController {
-    private $renderer = null;
+    private $renderClass = null;
+    private $template = 'cart';
 
     public function getCartPage() {
-        $this->renderer = new CartService();
-        $page = $this->renderer->renderCart();
+        $this->renderClass = new RenderService();
+        $page = $this->renderClass->renderPage($this->template, false);
         return $page;
     }
 }

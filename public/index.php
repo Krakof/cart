@@ -1,10 +1,11 @@
 <?php
 chdir(dirname(__DIR__));
 require 'vendor/autoload.php';
-require 'repository/connection.php';
-require 'services/getProducts.php';
-require 'services/renderPlates.php';
-require 'services/cart.php';
-require 'controllers/prodController.php';
-require 'controllers/cartController.php';
+require 'repository/ConnectDB.php';
+require 'services/ProductsService.php';
+require 'services/RenderService.php';
+require 'services/CartService.php';
+require 'services/Plates.php';
+require 'controllers/ProductsController.php';
+require 'controllers/CartController.php';
 require 'routing.php';
