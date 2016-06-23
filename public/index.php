@@ -8,4 +8,5 @@ require 'services/CartService.php';
 require 'services/Plates.php';
 require 'controllers/ProductsController.php';
 require 'controllers/CartController.php';
+require 'presenter/TransformIDs.php';
 require 'routing.php';

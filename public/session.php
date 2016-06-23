@@ -17,7 +17,8 @@ if(!isset($_SESSION['cart_items'])){
 //
 //// else, add the item to the array
 //else{
-    $_SESSION['cart_items'][$id]=$name;
+//array_push($_SESSION['cart_items'], $id);
+   $_SESSION['cart_items'][$id]=$id;
 //session_unset();
 
 // redirect to product list and tell the user it was added to cart

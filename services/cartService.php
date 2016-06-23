@@ -1,12 +1,11 @@
 <?php
 
 class CartService {
-    private $plates = null;
+    private $db = null;
 
-    public function renderCart() {
-        $this->plates = new Plates();
-        $renderer = $this->plates->getRenderer();
-        $page = $renderer->render('templates::cart');
-        return $page;
+    public function getProducts($ids){
+        $this->db = ConnectDB::getDB();
+        $products = $this->db->select($ids);
+        return $products;
     }
 }

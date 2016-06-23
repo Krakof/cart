@@ -1,6 +1,5 @@
 <?php
 // Start the session
-session_start();
 ?>
 <!DOCTYPE html>
 <html>
@@ -21,13 +20,14 @@ session_start();
 </head>
 <body>
 <div class="product-panel">
-    <?php foreach($_SESSION['cart_items'] as $id=>$value): ?>
+
+    <?php while($row = $result->fetch_assoc()): ?>
         <div class="item">
-                <?php echo "ProdID:"."  ".$id; ?> <br>
-                <?php echo "ProdNAME:"."  ".$value; ?> <br>
+                <?php echo "ProdID:"."  ".$row["id"]; ?> <br>
+                <?php echo "ProdNAME:"."  ".$row["name"]; ?> <br>
 
             </div>
-    <?php endforeach; ?>
+    <?php endwhile; ?>
 </div>
 </body>
 </html>

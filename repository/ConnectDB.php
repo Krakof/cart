@@ -25,4 +25,14 @@ class ConnectDB
         if (!$products) return false;
         return $products;
     }
+
+    public function select($ids){
+        $query = "SELECT * FROM product WHERE id IN ({$ids})";
+        $products = mysqli_query($this->conn, $query);
+//        var_dump($query);
+//        var_dump($products->fetch_assoc());
+
+        if (!$products) return false;
+        return $products;
+    }
 }
