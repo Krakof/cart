@@ -27,7 +27,7 @@ class ConnectDB
     }
 
     public function select($ids){
-        $query = "SELECT * FROM product WHERE id IN ({$ids})";
+        $query = "SELECT * FROM product WHERE id IN ({$ids}) ORDER BY FIELD(id, {$ids});";
         $products = mysqli_query($this->conn, $query);
 //        var_dump($query);
 //        var_dump($products->fetch_assoc());

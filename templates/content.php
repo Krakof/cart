@@ -25,7 +25,7 @@
 <body>
 <div class="product-panel">
     <?php while($row = $result->fetch_assoc()): ?>
-        <a href=<?php echo "session.php?id=". $row['id']."&name=".$row['name'] ?> ><div class="item">
+        <a href=<?php echo "session.php?id=". $row['id'] ?> ><div class="item">
             <?php echo $row["id"]; ?> <br>
             <?php echo $row["name"]; ?> <br>
             <?php echo $row["price"]; ?> <br>
