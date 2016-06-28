@@ -13,26 +13,26 @@ class ConnectDB
     }
 
     private function __construct(){
-        $this->conn = new mysqli($this->servername, $this->username, $this->password, $this->dbname);
+        $this->conn = new PDO('mysql:host=localhost;dbname=Cart', $this->username, $this->password);
+//        $this->conn = new mysqli($this->servername, $this->username, $this->password, $this->dbname);
 //        if (!$this->conn) {
 //            die("Connection failed: " . mysqli_connect_error());
 //        }
     }
 
     public function selectAll(){
-        $query = "SELECT id, name, price FROM product";
-        $products = mysqli_query($this->conn, $query);
+        $sql = "SELECT id, name, price FROM product";
+        $products = $this->conn->query($sql);
         if (!$products) return false;
-        return $products;
+        return $products->fetchAll();
     }
 
     public function select($ids){
-        $query = "SELECT * FROM product WHERE id IN ({$ids}) ORDER BY FIELD(id, {$ids});";
-        $products = mysqli_query($this->conn, $query);
-//        var_dump($query);
-//        var_dump($products->fetch_assoc());
+        $arrayTemp = implode(',', array_fill(0, count($ids), '?'));
+        $query = $this->conn->prepare("SELECT * FROM product WHERE id IN($arrayTemp) ORDER BY FIELD(id, $arrayTemp)");
+        $query->execute(array_merge($ids,$ids));
+        if (!$query) return false;
+        return $query->fetchAll();
 
-        if (!$products) return false;
-        return $products;
     }
 }

@@ -21,13 +21,13 @@
 <body>
 <div class="product-panel">
 
-    <?php while($row = $result->fetch_assoc()): ?>
+    <?php foreach($row = $result as $item): ?>
         <div class="item">
-                <?php echo "ProdID:"."  ".$row["id"]; ?> <br>
-                <?php echo "ProdNAME:"."  ".$row["name"]; ?> <br>
+                <?php echo "ProdID:"."  ".$item["id"]; ?> <br>
+                <?php echo "ProdNAME:"."  ".$item["name"]; ?> <br>
 
             </div>
-    <?php endwhile; ?>
+    <?php endforeach; ?>
 </div>
 </body>
 </html>

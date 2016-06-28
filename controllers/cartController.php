@@ -7,11 +7,10 @@ class CartController {
     private $template = 'cart';
 
     public function getCartPage($ids) {
-        $this->presentClass = new TransformIDs();
-        $idsArray = $this->presentClass->transform($ids);
+        $prodIDs = unserialize($ids);
 
         $this->prodServClass = new CartService();
-        $prods = $this->prodServClass->getProducts($idsArray);
+        $prods = $this->prodServClass->getProducts($prodIDs);
 
         $this->renderClass = new RenderService();
         $page = $this->renderClass->renderPage($this->template, $prods);

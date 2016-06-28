@@ -24,13 +24,14 @@
 </head>
 <body>
 <div class="product-panel">
-    <?php while($row = $result->fetch_assoc()): ?>
-        <a href=<?php echo "session.php?id=". $row['id'] ?> ><div class="item">
-            <?php echo $row["id"]; ?> <br>
-            <?php echo $row["name"]; ?> <br>
-            <?php echo $row["price"]; ?> <br>
+    <?php foreach($row = $result as $item): ?>
+        <a href=<?php echo "session.php?id=". $item['id'] ?> ><div class="item">
+            <?php echo $item["id"]; ?> <br>
+            <?php echo $item["name"]; ?> <br>
+            <?php echo $item["price"]; ?> <br>
         </div></a>
-    <?php endwhile; ?>
+    <?php endforeach; ?>
+
 </div>
 <a class="btn" href="cart">CART</a>
 </body>
