@@ -15,15 +15,16 @@ class ConnectDB
     private function __construct(){
         $this->conn = new PDO('mysql:host=localhost;dbname=Cart', $this->username, $this->password);
 //        $this->conn = new mysqli($this->servername, $this->username, $this->password, $this->dbname);
-//        if (!$this->conn) {
-//            die("Connection failed: " . mysqli_connect_error());
-//        }
+        if (!$this->conn) {
+            die("Connection failed!");
+        }
     }
 
     public function selectAll(){
         $sql = "SELECT id, name, price FROM product";
         $products = $this->conn->query($sql);
         if (!$products) return false;
+        var_dump($products);
         return $products->fetchAll();
     }
 
